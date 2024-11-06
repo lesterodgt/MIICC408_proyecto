@@ -58,3 +58,11 @@ reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!
 
 reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!grepl("\\{\\}", reglasPersonasFiltradoFrameConfidence[[1]]), ]
 
+reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!grepl("P04A02=\\[5,12\\]", reglasPersonasFiltradoFrameConfidence[[1]]), ]
+reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!grepl("P05E22=\\[1,2\\]", reglasPersonasFiltradoFrameConfidence[[1]]), ]
+reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!grepl("P12A04=\\[1,2\\]", reglasPersonasFiltradoFrameConfidence[[1]]), ]
+reglasPersonasFiltradoFrameConfidence <- reglasPersonasFiltradoFrameConfidence[!grepl("PPA06=\\[1,2\\]", reglasPersonasFiltradoFrameConfidence[[1]]), ]
+
+
+
+
