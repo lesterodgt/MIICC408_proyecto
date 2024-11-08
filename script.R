@@ -39,8 +39,19 @@ dataPersonas$INACTIVOS[is.na(dataPersonas$INACTIVOS)] <- 0
 #Generando reglas
 reglasPersonas <- apriori(dataPersonas, parameter = list(support=0.2, confidence = 0.5))
 
+dataPersonas <- as.data.frame(dataPersonas)
+reglasPersonas2 <- apriori(dataPersonas, parameter = list(support = 0.3, confidence = 0.6, minlen = 2))
+
 #revisión de reglas
 reglasPersonasFrame <- as(reglasPersonas, "data.frame")
+
+install.packages("writexl")
+library(writexl)
+
+reglasPersonasFrame2 <- as(reglasPersonas2, "data.frame")
+
+write_xlsx(reglasPersonasFrame2, "C:\\Users\\Lester\\Documents\\MAESTRIA\\INTO MINERIA DE DATOS\\proyecto_parte1\\ReglasPersonas_Apriori2.xlsx")
+
 
 reglasPersonasFrameSexo <-  reglasPersonasFrame[grepl("PPA02", reglasPersonasFrame[[1]]), ]
 
