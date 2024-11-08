@@ -87,16 +87,37 @@ head(transactions)
 #############
 dataHogares2Filtrado3[is.na(dataHogares2Filtrado3)] <- 0
 dataHogares2FiltradoFrame3<- as.data.frame(dataHogares2Filtrado3)
-reglasHogarFpgrowth2_2_3 <- fim4r(dataHogares2FiltradoFrame3, method = "fpgrowth", target="rules", supp = .3, conf = .6)
-reglasHogarFpgrowth2Frame3 <- as(reglasHogarFpgrowth2_2_3, "data.frame")
-write_xlsx(reglasHogarFpgrowth2Frame3, "C:\\Users\\Lester\\Documents\\MAESTRIA\\INTO MINERIA DE DATOS\\proyecto_parte1\\ReglasHogar_fpgrowth.xlsx")
+regrlasDataHogares2FiltradoFrame3 <- fim4r(dataHogares2FiltradoFrame3, method = "fpgrowth", target="rules", supp = .3, conf = .6)
+reglasHogarFpgrowth2Frame3 <- as(regrlasDataHogares2FiltradoFrame3, "data.frame")
+
+write_xlsx(reglasHogarFpgrowth2Frame3, "C:\\Users\\Lester\\Documents\\MAESTRIA\\INTO MINERIA DE DATOS\\proyecto_parte1\\ReglasHogar_fpgrowthsup3.xlsx")
+
+inspect(regrlasDataHogares2FiltradoFrame3[0:100])
+inspect(regrlasDataHogares2FiltradoFrame3[101:200])
+inspect(regrlasDataHogares2FiltradoFrame3[201:300])
+inspect(regrlasDataHogares2FiltradoFrame3[301:400])
+inspect(regrlasDataHogares2FiltradoFrame3[401:500])
+inspect(regrlasDataHogares2FiltradoFrame3[501:600])
+inspect(regrlasDataHogares2FiltradoFrame3[601:700])
+inspect(regrlasDataHogares2FiltradoFrame3[701:800])
+########################
+
+dataHogares2Filtrado4 <- dataHogares2[, c("DEPTO", "TOTAL_PERS", "PPB02", "P01A01", "P01A02", "P01A03", "P01A04", "P01A06", "P01B01", "P01D01", "P01D02", "P01D16", "P01D17", "P01D22", "P01D34", "P01H02", "P01H07", "P01H08", "P01H09", "P02B01")]
+dataHogares2Filtrado4[is.na(dataHogares2Filtrado4)] <- 0
+dataHogares2Filtrado4Frame<- as.data.frame(dataHogares2Filtrado4)
+reglasdataHogares2Filtrado4Frame <- fim4r(dataHogares2Filtrado4Frame, method = "fpgrowth", target="rules", supp = .3, conf = .6)
+inspect(reglasdataHogares2Filtrado4Frame[0:100])
+inspect(reglasdataHogares2Filtrado4Frame[101:200])
+inspect(reglasdataHogares2Filtrado4Frame[201:300])
+inspect(reglasdataHogares2Filtrado4Frame[301:400])
+inspect(reglasdataHogares2Filtrado4Frame[401:500])
 ##########
 
 
 dataHogares2Filtrado3Guate <- subset(dataHogares2Filtrado3, DEPTO == 1)
 dataHogares2Filtrado3Guate$DEPTO<- NULL
 dataHogares2FiltradoFrame3Guate<- as.data.frame(dataHogares2Filtrado3Guate)
-reglasHogarFpgrowth2_2_3Guate <- fim4r(dataHogares2FiltradoFrame3Guate, method = "fpgrowth", target="rules", supp = .3, conf = .6)
+reglasHogarFpgrowth2_2_3Guate <- fim4r(dataHogares2FiltradoFrame3Guate, method = "fpgrowth", target="rules", supp = .5, conf = .6)
 reglasHogarFpgrowth2Frame3Guate <- as(reglasHogarFpgrowth2_2_3Guate, "data.frame")
 write_xlsx(reglasHogarFpgrowth2Frame3Guate, "C:\\Users\\Lester\\Documents\\MAESTRIA\\INTO MINERIA DE DATOS\\proyecto_parte1\\ReglasHogar_fpgrowthGT.xlsx")
 
